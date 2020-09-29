@@ -19,23 +19,21 @@ namespace CustomIdentityApp
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddTransient<IUserValidator<User>, CustomUserValidator>();
+
             services.AddDbContext<AppDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
-            services.AddIdentity<User, IdentityRole>()
+            services.AddIdentity<User, IdentityRole>(opts => {
+                opts.Password.RequiredLength = 5;   
+                opts.Password.RequireNonAlphanumeric = false;  
+                opts.Password.RequireLowercase = false;
+                opts.Password.RequireUppercase = false; 
+                opts.Password.RequireDigit = false; 
+            })
                 .AddEntityFrameworkStores<AppDbContext>();
 
             services.AddControllersWithViews();
-
-            services.AddIdentity<User, IdentityRole>(opts => {
-                opts.Password.RequiredLength = 5;   
-                opts.Password.RequireNonAlphanumeric = false;   
-                opts.Password.RequireLowercase = false;
-                opts.Password.RequireUppercase = false; 
-                opts.Password.RequireDigit = false;
-            })
-                .AddEntityFrameworkStores<AppDbContext>();
-    
 
         }
 
@@ -48,7 +46,7 @@ namespace CustomIdentityApp
 
             app.UseRouting();
 
-            app.UseAuthentication();    // подключение аутентификации
+            app.UseAuthentication();   
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
