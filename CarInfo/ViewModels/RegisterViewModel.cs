@@ -19,14 +19,15 @@ namespace CarInfo.ViewModels
         public string Email { get; set; }
 
         [Required]
+        [StringLength(100, ErrorMessage = "Minimum length 5 sumb", MinimumLength = 5)]
         [DataType(DataType.Password)]
-        [Display(Name = "Пароль")]
+        [Display(Name = "Password")]
         public string Password { get; set; }
 
         [Required]
-        [Compare("Password", ErrorMessage = "Пароли не совпадают")]
+        [Compare("Password", ErrorMessage = "Passwords do not match")]
         [DataType(DataType.Password)]
-        [Display(Name = "Подтвердить пароль")]
+        [Display(Name = "Confirm password")]
         public string PasswordConfirm { get; set; }
     }
 }
