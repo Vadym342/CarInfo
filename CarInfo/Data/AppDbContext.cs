@@ -17,6 +17,12 @@ namespace CarInfo.Data
         }
 
         public DbSet<User> users { get; set; }
+        public DbSet<Car> Car { get; set; }
+        public DbSet<Category> Category { get; set; }
+        public DbSet<ShopCartItem> shopCartItems { get; set; }
+
+        public DbSet<Order> Order { get; set; }
+        public DbSet<OrderDet> OrderDetail { get; set; }
 
     }
 }
