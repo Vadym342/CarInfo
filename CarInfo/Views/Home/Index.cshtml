@@ -1,8 +1,21 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿@model HomeViewModel
 
+@Html.Partial("Carousel_Card")
+<div class="album py-5 ">
+    <div class="container mt-5">
+        <div class="row">
+            @{
+                foreach (Car car in Model.favCars)
+                {
 
+                    @Html.Partial("AllCars", car)
+
+                }
+            }
+        </div>
+
+    </div>
+</div>
 @if (User.Identity.IsAuthenticated)
 {
     <p>@User.Identity.Name</p>

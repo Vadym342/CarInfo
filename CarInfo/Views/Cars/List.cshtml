@@ -1,4 +1,17 @@
-﻿@page
-@model CarInfo.Views.Cars.ListModel
-@{
-}
+﻿<h2>All cars</h2>
+<h3>@Model.currCategory</h3>
+<div class="album py-5 ">
+    <div class="container mt-5">
+        <div class="row">
+            @{
+                foreach (Car car in Model.AllCars)
+                {
+
+                    @Html.Partial("AllCars", car)
+
+                }
+            }
+        </div>
+
+    </div>
+</div>

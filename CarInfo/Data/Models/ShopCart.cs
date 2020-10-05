@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -22,7 +23,7 @@ namespace CarInfo.Data.Models
         public static ShopCart GetCart(IServiceProvider services)
         {
             ISession session = services.GetRequiredService<IHttpContextAccessor>()?.HttpContext.Session; // add new session , if user don't creat basket 
-            var context = services.GetService<AppDBContent>();
+            var context = services.GetService<AppDbContext>();
             string shopCartId = session.GetString("cartId") ?? Guid.NewGuid().ToString(); //new indentificator 
 
             session.SetString("cartId", shopCartId);
