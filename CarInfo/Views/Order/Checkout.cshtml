@@ -1,4 +1,53 @@
-﻿@page
-@model CarInfo.Views.Order.CheckoutModel
-@{
-}
+﻿@model Order
+
+
+<div class="row">
+    <div class="container">
+        <h3>Ordering</h3>
+        <form asp-action="Checkout" method="post" class="form-horizontal">
+            <div class="form-group">
+                <label asp-for="name"></label>
+                <div class="col-md-5">
+                    <input asp-for="name" class="form-control" />
+                    <span asp-validation-for="name" class="text-danger"></span>
+                </div>
+
+            </div>
+            <div class="form-group">
+                <label asp-for="surname"></label>
+                <div class="col-md-5">
+                    <input asp-for="surname" class="form-control" />
+                    <span asp-validation-for="surname" class="text-danger"></span>
+                </div>
+
+            </div>
+            <div class="form-group">
+                <label asp-for="adress"></label>
+                <div class="col-md-5">
+                    <input asp-for="adress" class="form-control" />
+                    <span asp-validation-for="adress" class="text-danger"></span>
+                </div>
+
+            </div>
+            <div class="form-group">
+                <label asp-for="phone"></label>
+                <div class="col-md-5">
+                    <input asp-for="phone" class="form-control" />
+                    <span asp-validation-for="phone" class="text-danger"></span>
+                </div>
+
+            </div>
+            <div class="form-group">
+                <label asp-for="email"></label>
+                <div class="col-md-5">
+                    <input asp-for="email" class="form-control" />
+                    <span asp-validation-for="email" class="text-danger"></span>
+                </div>
+
+            </div>
+
+            <input class="btn btn-success" type="submit" value="Complete the order" />
+        </form>
+
+    </div>
+</div> 
