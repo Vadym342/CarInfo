@@ -8,9 +8,11 @@ using Microsoft.Extensions.Logging;
 using CarInfo.Models;
 using CarInfo.Data.Interfaces;
 using CarInfo.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CarInfo.Controllers
 {
+   
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
@@ -21,6 +23,7 @@ namespace CarInfo.Controllers
             _carRep = carRep;
 
         }
+    
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
