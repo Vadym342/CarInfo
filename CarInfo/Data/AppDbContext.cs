@@ -13,7 +13,8 @@ namespace CarInfo.Data
         public AppDbContext(DbContextOptions<AppDbContext> options)
             : base(options)
         {
-            Database.EnsureCreated();
+           // Database.EnsureCreated();
+           
         }
 
         public DbSet<User> users { get; set; }
