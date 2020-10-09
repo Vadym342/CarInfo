@@ -15,6 +15,7 @@ namespace CarInfo.Data.Models
         public string longDesc { get; set; }
         public string img { get; set; }
         public uint price { get; set; }
+        public int Year { get; set; }
         public bool isFavourite { get; set; }
         public bool avaible { get; set; }
         public int CategoryID { get; set; }
