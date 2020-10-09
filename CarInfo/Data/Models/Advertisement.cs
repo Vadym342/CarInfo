@@ -15,4 +15,3 @@ namespace CarInfo.Data.Models
 
     }
 }
-background - image: url(""); height: 385px;

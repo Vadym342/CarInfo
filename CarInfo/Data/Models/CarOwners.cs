@@ -8,7 +8,7 @@ namespace CarInfo.Data.Models
     public class CarOwners
     {
         public int id { get; set; }
-        public List<CarInfo> carInfos { get; set; }
+        public List<CarInformation> carInfos { get; set; }
 
     }
 }
