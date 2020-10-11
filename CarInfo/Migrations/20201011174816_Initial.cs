@@ -8,6 +8,21 @@ namespace CarInfo.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
+                name: "advertisements",
+                columns: table => new
+                {
+                    id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(nullable: true),
+                    Img = table.Column<string>(nullable: true),
+                    Description = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_advertisements", x => x.id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "AspNetRoles",
                 columns: table => new
                 {
@@ -50,6 +65,34 @@ namespace CarInfo.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "carBrands",
+                columns: table => new
+                {
+                    id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(nullable: true),
+                    YearCreation = table.Column<int>(nullable: false),
+                    Description = table.Column<string>(nullable: true),
+                    Img = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_carBrands", x => x.id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "CarOwners",
+                columns: table => new
+                {
+                    id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1")
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_CarOwners", x => x.id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Category",
                 columns: table => new
                 {
@@ -61,6 +104,32 @@ namespace CarInfo.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Category", x => x.id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "commentCategories",
+                columns: table => new
+                {
+                    id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    categoryName = table.Column<string>(nullable: true),
+                    description = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_commentCategories", x => x.id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "medianPriceCars",
+                columns: table => new
+                {
+                    id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1")
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_medianPriceCars", x => x.id);
                 });
 
             migrationBuilder.CreateTable(
@@ -199,19 +268,89 @@ namespace CarInfo.Migrations
                     longDesc = table.Column<string>(nullable: true),
                     img = table.Column<string>(nullable: true),
                     price = table.Column<long>(nullable: false),
+                    Year = table.Column<int>(nullable: false),
                     isFavourite = table.Column<bool>(nullable: false),
                     avaible = table.Column<bool>(nullable: false),
-                    CategoryID = table.Column<int>(nullable: false)
+                    CategoryID = table.Column<int>(nullable: false),
+                    CarBrandid = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Car", x => x.id);
+                    table.ForeignKey(
+                        name: "FK_Car_carBrands_CarBrandid",
+                        column: x => x.CarBrandid,
+                        principalTable: "carBrands",
+                        principalColumn: "id",
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Car_Category_CategoryID",
                         column: x => x.CategoryID,
                         principalTable: "Category",
                         principalColumn: "id",
                         onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "comments",
+                columns: table => new
+                {
+                    id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    message = table.Column<string>(nullable: true),
+                    rating = table.Column<int>(nullable: false),
+                    countLike = table.Column<int>(nullable: false),
+                    countDisLike = table.Column<int>(nullable: false),
+                    CommentCategoryid = table.Column<int>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_comments", x => x.id);
+                    table.ForeignKey(
+                        name: "FK_comments_commentCategories_CommentCategoryid",
+                        column: x => x.CommentCategoryid,
+                        principalTable: "commentCategories",
+                        principalColumn: "id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "CarInformation",
+                columns: table => new
+                {
+                    id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(nullable: true),
+                    Power = table.Column<string>(nullable: true),
+                    Speed = table.Column<double>(nullable: false),
+                    DriveTrain = table.Column<string>(nullable: true),
+                    Consumption = table.Column<double>(nullable: false),
+                    Price = table.Column<decimal>(nullable: false),
+                    Model = table.Column<string>(nullable: true),
+                    Chassis = table.Column<string>(nullable: true),
+                    Year = table.Column<int>(nullable: false),
+                    Engine = table.Column<double>(nullable: false),
+                    Transmission = table.Column<string>(nullable: true),
+                    Mileage = table.Column<double>(nullable: false),
+                    City = table.Column<string>(nullable: true),
+                    CarOwnersid = table.Column<int>(nullable: true),
+                    MedianPriceCarid = table.Column<int>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_CarInformation", x => x.id);
+                    table.ForeignKey(
+                        name: "FK_CarInformation_CarOwners_CarOwnersid",
+                        column: x => x.CarOwnersid,
+                        principalTable: "CarOwners",
+                        principalColumn: "id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_CarInformation_medianPriceCars_MedianPriceCarid",
+                        column: x => x.MedianPriceCarid,
+                        principalTable: "medianPriceCars",
+                        principalColumn: "id",
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -302,9 +441,29 @@ namespace CarInfo.Migrations
                 filter: "[NormalizedUserName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Car_CarBrandid",
+                table: "Car",
+                column: "CarBrandid");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Car_CategoryID",
                 table: "Car",
                 column: "CategoryID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_CarInformation_CarOwnersid",
+                table: "CarInformation",
+                column: "CarOwnersid");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_CarInformation_MedianPriceCarid",
+                table: "CarInformation",
+                column: "MedianPriceCarid");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_comments_CommentCategoryid",
+                table: "comments",
+                column: "CommentCategoryid");
 
             migrationBuilder.CreateIndex(
                 name: "IX_OrderDetail_CarID",
@@ -325,6 +484,9 @@ namespace CarInfo.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
+                name: "advertisements");
+
+            migrationBuilder.DropTable(
                 name: "AspNetRoleClaims");
 
             migrationBuilder.DropTable(
@@ -340,6 +502,12 @@ namespace CarInfo.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
+                name: "CarInformation");
+
+            migrationBuilder.DropTable(
+                name: "comments");
+
+            migrationBuilder.DropTable(
                 name: "OrderDetail");
 
             migrationBuilder.DropTable(
@@ -352,10 +520,22 @@ namespace CarInfo.Migrations
                 name: "AspNetUsers");
 
             migrationBuilder.DropTable(
+                name: "CarOwners");
+
+            migrationBuilder.DropTable(
+                name: "medianPriceCars");
+
+            migrationBuilder.DropTable(
+                name: "commentCategories");
+
+            migrationBuilder.DropTable(
                 name: "Order");
 
             migrationBuilder.DropTable(
                 name: "Car");
+
+            migrationBuilder.DropTable(
+                name: "carBrands");
 
             migrationBuilder.DropTable(
                 name: "Category");

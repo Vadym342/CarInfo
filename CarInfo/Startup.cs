@@ -5,6 +5,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using CarInfo.Data.Models;
 using CarInfo.Data;
+using CarInfo.Data.Interfaces;
+using CarInfo.Data.Repository;
+using Microsoft.AspNetCore.Http;
 
 namespace CustomIdentityApp
 {
@@ -20,7 +23,7 @@ namespace CustomIdentityApp
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddTransient<IUserValidator<User>, CustomUserValidator>();
-
+          
             services.AddDbContext<AppDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
@@ -32,7 +35,14 @@ namespace CustomIdentityApp
                 opts.Password.RequireDigit = false; 
             })
                 .AddEntityFrameworkStores<AppDbContext>();
-
+            services.AddTransient<IAllCars, CarRepository>();
+            services.AddTransient<ICarsCategory, CategoryRepository>();  //show  interfaces which we use in class
+            services.AddTransient<IAllOrders, OrdersRepository>();
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            services.AddScoped(sp => ShopCart.GetCart(sp));
+            services.AddMvc();
+            services.AddMemoryCache();
+            services.AddSession();
             services.AddControllersWithViews();
 
         }
@@ -43,9 +53,9 @@ namespace CustomIdentityApp
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
+            app.UseStatusCodePages();
             app.UseRouting();
-
+            app.UseSession();
             app.UseAuthentication();   
             app.UseAuthorization();
 

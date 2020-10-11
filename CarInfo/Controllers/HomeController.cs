@@ -6,16 +6,17 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using CarInfo.Models;
-using CarInfo.Data.Interfaces;
+
 using CarInfo.ViewModels;
 using Microsoft.AspNetCore.Authorization;
+using CarInfo.Data.Interfaces;
 
 namespace CarInfo.Controllers
 {
    
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+       
         private readonly IAllCars _carRep;
 
         public HomeController(IAllCars carRep)
@@ -24,20 +25,11 @@ namespace CarInfo.Controllers
 
         }
     
-        public HomeController(ILogger<HomeController> logger)
-        {
-            _logger = logger;
-        }
 
-        //public IActionResult Index()
+        //public IActionResult Privacy()
         //{
         //    return View();
         //}
-
-        public IActionResult Privacy()
-        {
-            return View();
-        }
         public ViewResult Index()
         {
             var homeCars = new HomeViewModel

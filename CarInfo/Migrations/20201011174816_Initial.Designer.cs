@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CarInfo.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20201009165956_Initial")]
+    [Migration("20201011174816_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -21,6 +21,27 @@ namespace CarInfo.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("CarInfo.Data.Models.Advertisement", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Img")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("id");
+
+                    b.ToTable("advertisements");
+                });
+
             modelBuilder.Entity("CarInfo.Data.Models.Car", b =>
                 {
                     b.Property<int>("id")
@@ -28,7 +49,13 @@ namespace CarInfo.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int?>("CarBrandid")
+                        .HasColumnType("int");
+
                     b.Property<int>("CategoryID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Year")
                         .HasColumnType("int");
 
                     b.Property<bool>("avaible")
@@ -57,9 +84,108 @@ namespace CarInfo.Migrations
 
                     b.HasKey("id");
 
+                    b.HasIndex("CarBrandid");
+
                     b.HasIndex("CategoryID");
 
                     b.ToTable("Car");
+                });
+
+            modelBuilder.Entity("CarInfo.Data.Models.CarBrand", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Img")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("YearCreation")
+                        .HasColumnType("int");
+
+                    b.HasKey("id");
+
+                    b.ToTable("carBrands");
+                });
+
+            modelBuilder.Entity("CarInfo.Data.Models.CarInformation", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("CarOwnersid")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Chassis")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("City")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("Consumption")
+                        .HasColumnType("float");
+
+                    b.Property<string>("DriveTrain")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("Engine")
+                        .HasColumnType("float");
+
+                    b.Property<int?>("MedianPriceCarid")
+                        .HasColumnType("int");
+
+                    b.Property<double>("Mileage")
+                        .HasColumnType("float");
+
+                    b.Property<string>("Model")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Power")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<double>("Speed")
+                        .HasColumnType("float");
+
+                    b.Property<string>("Transmission")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Year")
+                        .HasColumnType("int");
+
+                    b.HasKey("id");
+
+                    b.HasIndex("CarOwnersid");
+
+                    b.HasIndex("MedianPriceCarid");
+
+                    b.ToTable("CarInformation");
+                });
+
+            modelBuilder.Entity("CarInfo.Data.Models.CarOwners", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.HasKey("id");
+
+                    b.ToTable("CarOwners");
                 });
 
             modelBuilder.Entity("CarInfo.Data.Models.Category", b =>
@@ -78,6 +204,65 @@ namespace CarInfo.Migrations
                     b.HasKey("id");
 
                     b.ToTable("Category");
+                });
+
+            modelBuilder.Entity("CarInfo.Data.Models.Comment", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("CommentCategoryid")
+                        .HasColumnType("int");
+
+                    b.Property<int>("countDisLike")
+                        .HasColumnType("int");
+
+                    b.Property<int>("countLike")
+                        .HasColumnType("int");
+
+                    b.Property<string>("message")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("rating")
+                        .HasColumnType("int");
+
+                    b.HasKey("id");
+
+                    b.HasIndex("CommentCategoryid");
+
+                    b.ToTable("comments");
+                });
+
+            modelBuilder.Entity("CarInfo.Data.Models.CommentCategory", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("categoryName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("id");
+
+                    b.ToTable("commentCategories");
+                });
+
+            modelBuilder.Entity("CarInfo.Data.Models.MedianPriceCar", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.HasKey("id");
+
+                    b.ToTable("medianPriceCars");
                 });
 
             modelBuilder.Entity("CarInfo.Data.Models.Order", b =>
@@ -375,11 +560,33 @@ namespace CarInfo.Migrations
 
             modelBuilder.Entity("CarInfo.Data.Models.Car", b =>
                 {
+                    b.HasOne("CarInfo.Data.Models.CarBrand", null)
+                        .WithMany("cars")
+                        .HasForeignKey("CarBrandid");
+
                     b.HasOne("CarInfo.Data.Models.Category", "Category")
                         .WithMany("cars")
                         .HasForeignKey("CategoryID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("CarInfo.Data.Models.CarInformation", b =>
+                {
+                    b.HasOne("CarInfo.Data.Models.CarOwners", null)
+                        .WithMany("carInfos")
+                        .HasForeignKey("CarOwnersid");
+
+                    b.HasOne("CarInfo.Data.Models.MedianPriceCar", null)
+                        .WithMany("carInfos")
+                        .HasForeignKey("MedianPriceCarid");
+                });
+
+            modelBuilder.Entity("CarInfo.Data.Models.Comment", b =>
+                {
+                    b.HasOne("CarInfo.Data.Models.CommentCategory", null)
+                        .WithMany("comments")
+                        .HasForeignKey("CommentCategoryid");
                 });
 
             modelBuilder.Entity("CarInfo.Data.Models.OrderDet", b =>

@@ -21,9 +21,9 @@ namespace CarInfo.Data.Models
         public string Transmission { get; set; }
         public double Mileage { get; set; }
         public string City { get; set; }
-        public List<MedianPriceCar> medianPriceCars { get; set; }
+       // public List<MedianPriceCar> medianPriceCars { get; set; }
         
-       // public List<CarOwners> owners { get; set; }
+       // public List<CarOwner> owners { get; set; }
 
     }
 }
