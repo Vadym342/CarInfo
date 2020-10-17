@@ -11,7 +11,7 @@
     "outputFileName": "wwwroot/js/bundle.js",
     "inputFiles": [
       "wwwroot/js/site.js",
-      "wwwroot/js/site2.js",
+      "wwwroot/js/bootstrap.min.js",
       "wwwroot/js/site3.js"
     ],
     "minify": {
