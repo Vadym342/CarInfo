@@ -1,10 +1,10 @@
 [
   {
-    "outputFileName": "wwwroot/css/bundle.css",
+    "outputFileName": "wwwroot/css/CustomStyle.css",
     "inputFiles": [
       "wwwroot/css/site.css",
-      "wwwroot/css/site2.css",
-      "wwwroot/css/bootstrap.min.css"
+      "wwwroot/css/style2.css"
+
     ]
   },
   {
@@ -16,7 +16,8 @@
     ],
     "minify": {
       "enabled": true,
-      "renameLocals": true
+      "renameLocals": true,
+      "commentMode": "all"
     }
   }
 ]

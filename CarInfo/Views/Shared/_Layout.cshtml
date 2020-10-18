@@ -1,11 +1,10 @@
 ﻿<!DOCTYPE html>
-
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
     <link href="~/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <link href="~/css/Style.css" rel="stylesheet" type="text/css" />
+    <link href="~/css/CustomStyle.css" rel="stylesheet" />
 </head>
 <body>
     <header>
@@ -30,6 +29,22 @@
                     </li>
                     <li class="nav-item active">
                         <a class="nav-link " href="/ShopCart/">Cart</a>
+                    </li>
+                    <li class="nav-item active">
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            @User.Identity.Name
+                      
+                            <form method="post" asp-controller="Account" asp-action="Logout">
+                                <input type="submit" value="Выход" />
+                            </form>
+                        
+                        }
+                        else
+                        {
+                            <a asp-controller="Account" asp-action="Login">Вход</a>
+                            <a asp-controller="Account" asp-action="Register">Регистрация</a>
+                        }
                     </li>
                 </ul>
                 <form class="form-inline mt-2 mt-md-0">

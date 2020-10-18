@@ -1,70 +1,311 @@
-﻿
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <link  type="text/css" rel="stylesheet" href="@Url.Content("~/css/Style.css")"/>
-</head>
-<div>
-    <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
-        <ol class="carousel-indicators">
-            <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
-            <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
-            <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
-        </ol>
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img  src="https://cdn.motor1.com/images/mgl/Yoqlv/s3/2020-vw-arteon-r-line-edition.jpg" class="d-block w-100" alt="...">
-                <div class="carousel-caption d-none d-md-block">
-                    <h5>First slide label</h5>
-                    <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <img style="max-width: 100%;object-fit:cover; height:550px " src="https://garage-news.com/wp-content/uploads/2020/06/carpixel.net-2020-volkswagen-passat-r-line-us-88316-wide.jpg" class="d-block w-100" alt="...">
-                <div class="carousel-caption d-none d-md-block">
-                    <h5>Second slide label</h5>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <img style="max-width: 100%;object-fit:cover; height:550px " src="https://www.autocentre.ua/wp-content/uploads/2019/01/bcef9ae4-2020-vw-passat-usa-3volkswagen.jpg" class="d-block w-100" alt="...">
-                <div class="carousel-caption d-none d-md-block">
-                    <h5>Third slide label</h5>
-                    <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-                </div>
-            </div>
-        </div>
-        <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
+﻿<header class="main-header" id="main_header" style="height: 257.857px;">
+    <div class="small-top-menu" style="top:0;">
+        <a href="#menu" id="menulink" class="menu-link">
+            <span class="icon-menu large" style="color: white; font-size: 48px !important;"></span>
         </a>
-        <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
+
+        <a href="javascript:" id="pagemenulink" class="page-menu-link">
+            <span class="icon-more" style="color: white !important;"></span>
         </a>
     </div>
-</div>
-<div class="container">
-    <br />
-</div>
-<div class="container">
-    <div class="row">
-        <div class="col-lg-4">
-            <img src="https://cdn.motor1.com/images/mgl/LBX7M/s1/2020-vw-arteon-r-line-edition.jpg" style="height:200px; border-radius: 100px; width:auto; " />
-            <h2>Heading</h2>
-            <p style="height:150px">Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>
-            <p><a class="btn btn-secondary" href="#" role="button">View details »</a></p>
+
+
+
+    <div class="header-bkg " style="background-image: url(&quot;https://s.car.info/image_files/3840/bmw-i8-front-side-0-188410.jpg&quot;); height: 257.857px;">
+        <div class="cover_spot_list_container">
+
+            <div id="coverimage" class="image-thumb" style=" position: absolute; top: 50px; right: 50px; height: 25px !important; width: 150px !important; z-index: 5;">
+                <a class="image-link" style="color: white;" href="https://www.car.info/en-se/image/bmw-i8-front-side-0-188410">Show coverphoto<svg class="icon" style=";"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/symbol/svg/sprite.symbol.svg#zoom-in"></use></svg></a>
+
+            </div>
+
         </div>
-        <div class="col-lg-4">
-            <img src="https://cdn.motor1.com/images/mgl/LBX7M/s1/2020-vw-arteon-r-line-edition.jpg" style="height:200px; border-radius: 100px; width:auto;" />
-            <h2>Heading</h2>
-            <p style="height:150px">Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
-            <p><a class="btn btn-secondary" href="#" role="button">View details »</a></p>
-        </div>
-        <div class="col-lg-4">
-            <img src="https://cdn.motor1.com/images/mgl/LBX7M/s1/2020-vw-arteon-r-line-edition.jpg" style="height:200px; border-radius: 100px; width:auto;" />
-            <h2>Heading</h2>
-            <p style="height:150px">Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-            <p><a class="btn btn-secondary" href="#" role="button">View details »</a></p>
-        </div>
+        <style>
+            #coverimage .icon {
+                fill: white;
+            }
+        </style>
     </div>
-</div>
+
+    <script type="text/javascript">
+
+        //var isMobile = false;
+
+        var pswpElement = document.getElementById('photoswipe');
+        //var $thumbs_container = $('.spot_list_container');
+        var linkSelector = '.image-thumb > a:first-child';
+
+        var base_url = 'https://s.car.info/image_files/';
+
+        var items = [];
+
+        var preparePhotoSwipeCover = function () {
+
+            /*var pswpElement = document.getElementById('photoswipe');
+    var $thumbs_container = $('.spot_list_container');
+    var linkSelector = '.image-thumb > a:first-child';
+
+    var base_url = 'https://s.car.info/image_files/';
+
+    var items = [];*/
+
+            /* Cover header photo */
+
+
+
+            items.push({
+                src: base_url + '1920/' + 'bmw-i8-front-side-0-188410' + '.jpg',
+                msrc: base_url + '360/' + 'bmw-i8-front-side-0-188410' + '.jpg',
+                fsrc: base_url + (isMobile ? '1920' : '3840') + '/' + 'bmw-i8-front-side-0-188410' + '.jpg',
+                w: 5760,
+                h: 3840,
+                title: "cover",
+                path: 'bmw-i8-front-side-0-188410',
+                id: '188410'
+            });
+
+
+
+
+
+
+
+
+
+
+        };
+
+        if (window.DOMContentLoaded && window.DOMContentLoaded === true) {
+            preparePhotoSwipeCover();
+
+
+        } else {
+            document.addEventListener("DOMContentLoaded", function (event) {
+                preparePhotoSwipeCover();
+            });
+        }
+
+        var coverlink = document.getElementById("coverimage");
+
+
+        if (coverlink) {
+
+            coverlink.onclick = function () {
+
+
+                var $thumbs_container = $('.cover_spot_list_container');
+
+
+                Wroom.initPhotoSwipe($thumbs_container, linkSelector, items, true, 'subject=8');
+            };
+
+        }
+
+
+    </script>
+
+
+
+    <div class="header-content  v3_bootstrap">
+
+
+        <h1>
+            <div class="logo-box" style="background-image: url('https://s.car.info/image_files/logos/180/1184.jpg');"></div>
+
+            <a href="https://www.car.info/en-se/bmw">
+                <span itemprop="name">BMW</span>
+                <span class="light "></span>
+            </a>
+        </h1>
+
+
+
+        <nav class="page-menu" role="navigation">
+            <ul>
+                <li>
+                    <a href="https://www.car.info/en-se/bmw/spots">
+                        <div class="overlayed-icon camera-icon">
+                            <svg class="icon" style=";">
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/symbol/svg/sprite.symbol.svg#camera"></use>
+                            </svg><div>52.5K</div>
+                        </div><span class="label">Images</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.car.info/en-se/bmw/specs"><svg class="icon" style=";"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/symbol/svg/sprite.symbol.svg#specs"></use></svg><span class="label">Specs</span></a>
+                </li>
+                <li>
+                    <a href="https://www.car.info/en-se/bmw/map">
+                        <div class="overlayed-icon map-icon">
+                            <svg class="icon" style=";">
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/symbol/svg/sprite.symbol.svg#map"></use>
+                            </svg><div>317.1K</div>
+                        </div><span class="label">Map</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.car.info/en-se/bmw/reviews">
+                        <div class="overlayed-icon test-icon">
+                            <svg class="icon" style=";">
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/symbol/svg/sprite.symbol.svg#test"></use>
+                            </svg><div>4766</div>
+                        </div><span class="label">Reviews</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.car.info/en-se/bmw/classifieds">
+                        <div class="overlayed-icon price-icon">
+                            <svg class="icon" style=";">
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/symbol/svg/sprite.symbol.svg#price"></use>
+                            </svg><div>159.9K:-</div>
+                        </div><span class="label">For sale</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.car.info/en-se/bmw/stats"><img src="https://s.car.info/g/illustrations/filter_chart.svg" class="svgStatsIcon"><span class="label">Statistics</span></a>
+                </li>
+                <li class="spacer"></li>
+                <li>
+                    <a class="like-button-knockout" data-bind="href: linkUrl,click: likeToggle, class: { selected: user_likes }" href="/login">
+
+                        <div class="overlayed-icon like-icon">
+                            <svg class="icon" style=";"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/symbol/svg/sprite.symbol.svg#like"></use></svg>
+                            <!-- ko if: like_count --><!-- /ko -->
+                        </div>
+
+                        <span class="label" data-bind="text: like_text">Like</span>
+                    </a>
+                </li>
+
+
+
+
+            </ul>
+        </nav>
+
+
+
+
+
+
+
+
+
+
+
+        <script>
+                window.valuationUrl = "https://valuation.car.info";
+        </script>
+
+
+        <div class="fixed-top">
+
+            <nav id="mobile-navbar" class="navbar navbar-dark-active  text-center d-xl-none mobile v3_css">
+                <a class="navbar-brand d-inline-block" href="https://www.car.info/en-se"><img src="/g/logo_white.svg" alt="Car.info logo" style="height:30px;width:93px;"></a>
+                <form class="navbar-form form-inline w-50">
+                    <input class="form-control navbar-form-control w-100 searchfield" type="text" name="query" autocomplete="off" placeholder="Search model / licence plate..." value="" aria-label="Search">
+                </form>
+
+                <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#mobileMenu" aria-controls="mobileMenu" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="icon_menu icon_white icon_l"></span>
+                </button>
+
+                <div class="navbar-collapse collapse" id="mobileMenu">
+                    <ul class="navbar-nav ">
+                        <li class="nav-item nav_logged_in d-none">
+                            <a class="nav-link car-list-link" href=""><span class="icon_document nav-icon"></span>My lists</a>
+                        </li>
+
+                        <li class="nav-item nav_valuation d-none">
+                            <a class="nav-link" href="https://valuation.car.info/saml2/login"><span class="icon_shopping_cart nav-icon"></span>Valuation</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="https://www.car.info/en-se/user-reviews/create"><span class="icon_star nav-icon"></span>Review a car</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="https://www.car.info/en-se/spots/manage"><span class="icon_picture nav-icon"></span>Upload images</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="feedback-report-link nav-link" href="javascript:;"><span class="icon_chat nav-icon"></span>Give us feedback</a>
+                        </li>
+
+                        <li class="nav-item nav_logged_in d-none">
+                            <a class="nav-link" href="https://www.car.info/en-se/user/profile"><span class="icon_user nav-icon"></span><span class="nav_user_name"></span></a>
+                        </li>
+                        <li class="nav-item nav_logged_in d-none">
+                            <a class="nav-link" href="https://www.car.info/en-se/user/settings"><span class="icon_admin_settings nav-icon"></span>Settings</a>
+                        </li>
+
+                        <li class="nav-item nav_not_logged_in ">
+                            <a class="nav-link" href="https://www.car.info/en-se/login"><span class="icon_user nav-icon"></span>Log in</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="https://www.car.info/sv-se/bmw"><img src="https://s.car.info/g/flags/mini/se.png" width="40" height="25">&nbsp;Svenska</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="https://www.car.info/en-se/bmw"><img src="https://s.car.info/g/flags/mini/gb.png" width="40" height="25">&nbsp;English</a>
+                        </li>
+
+                        <li class="nav-item nav_logged_in d-none">
+                            <a class="nav-link" href="https://www.car.info/en-se/logout"><span class="icon_cross nav-icon"></span>Logout</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+
+
+
+        <nav class="navbar navbar-dark-active fixed-top navbar-expand-xl text-center mx-auto d-none d-xl-flex pt-2 pb-1 v3_css">
+            <a class="navbar-brand d-inline-block" href="https://www.car.info/en-se"><img src="/g/logo_white.svg" alt="Car.info logo" style="height:36px;width:111px;"></a>
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item nav_valuation d-none">
+                    <a class="nav-link" href="https://valuation.car.info/saml2/login"><span class="icon_shopping_cart nav-icon"></span>Valuation</a>
+                </li>
+
+                <li class="nav-item">
+                    <a id="feedback-report-link" class="feedback-report-link nav-link" href="javascript:;"><span class="icon_chat nav-icon"></span>Give feedback</a>
+                </li>
+                <li class="nav-item">
+                    <form class="navbar-form form-inline mr-3 ml-3">
+                        <input class="form-control navbar-form-control searchfield searchfield-width" type="text" name="query" placeholder="Search model / licence plate..." value="" aria-label="Search">
+                    </form>
+                </li>
+
+                <li class="nav-item nav_logged_in d-none">
+                    <a class="nav-link car-list-link" href=""><span class="icon_document nav-icon"></span>My lists</a>
+                </li>
+                <li class="nav-item nav_logged_in d-none">
+                    <div class="dropdown">
+                        <a class="nav-link dropdown-toggle" href="/" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="icon_user nav-icon"></span><span class="nav_user_name"></span></a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item car-list-link" href=""><span class="icon_document nav-icon"></span>My lists</a>
+                            <a class="dropdown-item" href="https://www.car.info/en-se/user-reviews/create"><span class="icon_star nav-icon"></span>Review</a>
+                            <a class="dropdown-item" href="https://www.car.info/en-se/spots/manage"><span class="icon_picture nav-icon"></span>Upload</a>
+                            <a class="dropdown-item" href="https://www.car.info/en-se/user/profile"><span class="icon_user nav-icon"></span>Show account</a>
+                            <a class="dropdown-item" href="https://www.car.info/en-se/user/settings/"><span class="icon_admin_settings nav-icon"></span>Settings</a>
+                            <a class="dropdown-item" href="https://www.car.info/en-se/logout"><span class="icon_cross nav-icon"></span>Logout</a>
+                        </div>
+                    </div>
+                </li>
+
+                <li class="nav-item nav_not_logged_in ">
+                    <a class="nav-link" href="https://www.car.info/en-se/login"><span class="icon_user nav-icon"></span>Log in</a>
+                </li>
+            </ul>
+            <div class="dropdown language-picker">
+                <a class="nav-link dropdown-toggle" href="https://www.car.info/en-se/bmw" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="https://s.car.info/g/flags/mini/gb.png" style="width:32px;height:20px;margin-right:5px;">English</a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="https://www.car.info/sv-se/bmw"><img src="https://s.car.info/g/flags/mini/se.png" style="width:32px;height:20px;margin-right:5px;">Svenska</a>
+                </div>
+            </div>
+        </nav>
+
+        <script>
+        var carListloginUrl = "https://www.car.info/en-se/login";
+        </script>
+
+    </div>
+</header>
