@@ -36,6 +36,7 @@ namespace CustomIdentityApp
             })
                 .AddEntityFrameworkStores<AppDbContext>();
             services.AddTransient<IAllCars, CarRepository>();
+            services.AddTransient<ICarBrandCategory, CarBrandCategoryRepository>();
             services.AddTransient<ICarsCategory, CategoryRepository>();  //show  interfaces which we use in class
             services.AddTransient<IAllOrders, OrdersRepository>();
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
@@ -65,6 +66,18 @@ namespace CustomIdentityApp
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
+            //app.UseMvc(routes =>
+            //{
+            //    routes.MapRoute(name: "default", template: "{controller=Home}/{action=Index}/{id?}");
+            //    routes.MapRoute(name: "categoryFilter", template: "Car/{action}/{category?}", defaults: new { Controller = "Car", action = "List" });
+            //});
+
+
+            using (var scope = app.ApplicationServices.CreateScope())
+            {
+                AppDbContext content = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+                DbObj.Initial(content);
+            }
         }
     }
 }

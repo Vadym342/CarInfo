@@ -36,14 +36,14 @@
                             @User.Identity.Name
                       
                             <form method="post" asp-controller="Account" asp-action="Logout">
-                                <input type="submit" value="Выход" />
+                                <input type="submit" value="Exit" />
                             </form>
                         
                         }
                         else
                         {
-                            <a asp-controller="Account" asp-action="Login">Вход</a>
-                            <a asp-controller="Account" asp-action="Register">Регистрация</a>
+                            <a asp-controller="Account" asp-action="Login">Log in</a>
+                            <a asp-controller="Account" asp-action="Register">Registration</a>
                         }
                     </li>
                 </ul>

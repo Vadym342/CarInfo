@@ -13,7 +13,7 @@ namespace CarInfo.Data
         public AppDbContext(DbContextOptions<AppDbContext> options)
             : base(options)
         {
-           // Database.EnsureCreated();
+           
            
         }
 
@@ -24,12 +24,13 @@ namespace CarInfo.Data
         public DbSet<Order> Order { get; set; }
         public DbSet<OrderDet> OrderDetail { get; set; }
         public DbSet<Advertisement> advertisements { get; set; }
-        public DbSet<CarBrand> carBrands { get; set; }
+        public DbSet<CarBrand> CarBrands { get; set; }
         public DbSet<CarInformation> CarInformation { get; set; }
         public DbSet<CarOwners> CarOwners { get; set; }
         public DbSet<Comment> comments { get; set; }
         public DbSet<CommentCategory> commentCategories { get; set; }
         public DbSet<MedianPriceCar> medianPriceCars { get; set; }
+        public DbSet<CarBrandCategory> carBrandCategories { get; set; }
 
     }
         

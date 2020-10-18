@@ -20,6 +20,7 @@ namespace CarInfo.Data.Models
         public bool avaible { get; set; }
         public int CategoryID { get; set; }
         public virtual Category Category { get; set; }
+        public virtual CarBrandCategory CarBrandCategory { get; set; }
 
     }
 }

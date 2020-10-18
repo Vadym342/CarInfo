@@ -1,19 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace CarInfo.Data.Models
 {
-    public class CarBrand
+   public class CarBrandCategory
     {
         public int id { get; set; }
-        public string Name { get; set; }
-        public int YearCreation { get; set; }
+        public string CategoryName { get; set; }
         public string Description { get; set; }
-        public string Img { get; set; }
-        public List<Car> cars { get; set; }
-
+        public string ImgBrand { get; set; }
+        public List<Car> Cars { get; set; }
     }
 }

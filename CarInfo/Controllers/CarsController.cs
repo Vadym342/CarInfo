@@ -13,18 +13,19 @@ namespace CarInfo.Controllers
     {
         private readonly IAllCars _allCars;
         private readonly ICarsCategory _carsCategory;
-
-        public CarsController(IAllCars iallCars, ICarsCategory iCarCat)
+        private readonly ICarBrandCategory _carBrandCategory;
+        public CarsController(IAllCars iallCars, ICarsCategory iCarCat, ICarBrandCategory iCarBrand)
         {
             _allCars = iallCars;
             _carsCategory = iCarCat;
+            _carBrandCategory = iCarBrand;
         }
 
 
         [Route("Cars/List")]
         [Route("Cars/List/{category}")]
         public ViewResult List(string category)
-        {
+        {       
             string _category = category;
             IEnumerable<Car> cars = null;
             string currCategory = "";
@@ -66,5 +67,9 @@ namespace CarInfo.Controllers
 
 
         }
+
+
+
+
     }
 }
