@@ -8,6 +8,6 @@ namespace CarInfo.Data.Interfaces
 {
   public interface ICarBrandCategory
     {
-        IEnumerable<CarBrandCategory> AllBrandCategoris { get;}
+      public IEnumerable<CarBrandCategory> AllBrandCategoris { get;}
     }
 }

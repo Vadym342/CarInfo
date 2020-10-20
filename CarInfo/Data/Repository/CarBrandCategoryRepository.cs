@@ -15,8 +15,6 @@ namespace CarInfo.Data.Repository
         {
             this.appDbContext = appDBContent;
         }
-        public IEnumerable<CarBrandCategoryRepository> AllBrandCategoris => appDbContext.carBrandCategories;
-
-        
+        public IEnumerable<CarBrandCategory> AllBrandCategoris => appDbContext.carBrandCategories;
     }
 }
