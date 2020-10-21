@@ -55,7 +55,7 @@ namespace CarInfo.Data
                 return _carBrandCategory;
             
             }
-
+            
         }
 
 
