@@ -41,9 +41,9 @@ namespace CarInfo.Data
                 if (_carBrandCategory == null)
                 {
                     var list = new CarBrandCategory[] {
-                        new CarBrandCategory{CategoryName="BMW", Description="...",Year=1927},
-                        new CarBrandCategory{ CategoryName="Mercedes-Benz", Description="...",Year=1926},
-                        new CarBrandCategory{ CategoryName="Volkswagen", Description="...",Year=1938}
+                        new CarBrandCategory{CategoryName="BMW", ImgBrand="https://images-na.ssl-images-amazon.com/images/I/61b2FkbZsEL._AC_SX679_.jpg", Description="...",Year=1927},
+                        new CarBrandCategory{ CategoryName="Mercedes-Benz", ImgBrand="https://i.pinimg.com/originals/03/e1/b0/03e1b0207489ad32d10b9a860ffc6623.png", Description="...",Year=1926},
+                        new CarBrandCategory{ CategoryName="Volkswagen",  ImgBrand="https://cdn.motor1.com/images/mgl/lwm4g/s3/logo-story-volkswagen.jpg", Description="...",Year=1938}
                     };
                     _carBrandCategory = new Dictionary<string, CarBrandCategory>();
 

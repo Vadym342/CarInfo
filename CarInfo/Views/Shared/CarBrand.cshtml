@@ -1,13 +1,50 @@
 ﻿@model CarBrandCategory
 <head>
     <link href="~/css/CustomStyle.css" rel="stylesheet" type="text/css" />
+    <link href="~/js/bundle.js"  />
 </head>
 <body>
-    <div class="col-md-4">
-        <div class="card mb-4 shadow-sm">
-            <img class="img-thumbnail imgStyleCard" style="height:250px" src="@Model.ImgBrand" alt="" />
-            <!--swiper-container, swiper-slides    -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.2/js/swiper.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.2/css/swiper.min.css" rel="stylesheet" />
+    <div class="container">
+
+        <div class="swiper_wrap">
+            <div class="slider-wrapper">
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <a href="#">
+                                <img src="http://redsqdesign.co.uk/wp-content/uploads/2017/02/red-square.png">
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="#">
+                                <img src="http://redsqdesign.co.uk/wp-content/uploads/2017/02/red-square.png">
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="#">
+                                <img src="http://redsqdesign.co.uk/wp-content/uploads/2017/02/red-square.png">
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="#">
+                                <img src="http://redsqdesign.co.uk/wp-content/uploads/2017/02/red-square.png">
+                            </a>
+                        </div><div class="swiper-slide">
+                            <a href="#">
+                                <img src="http://redsqdesign.co.uk/wp-content/uploads/2017/02/red-square.png">
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Add Pagination -->
+                    <div class="swiper-pagination"></div>
+                </div>
+                <div class="swiper-button-next"></div>
+            </div>
         </div>
     </div>
+    <script src="http://www.jakse.si/test/jakse/taxi/js/swiper.min.js"></script>
 
 </body>

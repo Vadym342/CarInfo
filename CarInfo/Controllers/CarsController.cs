@@ -20,6 +20,15 @@ namespace CarInfo.Controllers
             _carsCategory = iCarCat;
             _carBrandCategory = iCarBrand;
         }
+        [Route("Cars/ListBrand")]
+        [Route("Cars/ListBrand/{carbrandcategory}")]
+        public ViewResult BrandList(string brandCategory)
+        {
+
+            // list carbrands
+
+            return View();
+        }
 
 
         [Route("Cars/List")]
