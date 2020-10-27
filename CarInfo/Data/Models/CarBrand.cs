@@ -10,10 +10,13 @@ namespace CarInfo.Data.Models
     {
         public int id { get; set; }
         public string Name { get; set; }
+        public bool PopularBrand { get; set; }
         public int YearCreation { get; set; }
         public string Description { get; set; }
         public string Img { get; set; }
-        public List<Car> cars { get; set; }
+       // public List<Car> cars { get; set; }
+        
+        public virtual CarBrandCategory CarBrandCategory { get; set; }
 
     }
 }

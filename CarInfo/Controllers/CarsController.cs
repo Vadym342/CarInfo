@@ -13,23 +13,14 @@ namespace CarInfo.Controllers
     {
         private readonly IAllCars _allCars;
         private readonly ICarsCategory _carsCategory;
-        private readonly ICarBrandCategory _carBrandCategory;
-        public CarsController(IAllCars iallCars, ICarsCategory iCarCat, ICarBrandCategory iCarBrand)
+      
+        public CarsController(IAllCars iallCars, ICarsCategory iCarCat)
         {
             _allCars = iallCars;
             _carsCategory = iCarCat;
-            _carBrandCategory = iCarBrand;
+            
         }
-        [Route("Cars/ListBrand")]
-        [Route("Cars/ListBrand/{carbrandcategory}")]
-        public ViewResult BrandList(string brandCategory)
-        {
-
-            // list carbrands
-
-            return View();
-        }
-
+       
 
         [Route("Cars/List")]
         [Route("Cars/List/{category}")]

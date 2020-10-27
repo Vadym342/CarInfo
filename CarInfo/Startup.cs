@@ -37,6 +37,7 @@ namespace CustomIdentityApp
                 .AddEntityFrameworkStores<AppDbContext>();
             services.AddTransient<IAllCars, CarRepository>();
             services.AddTransient<ICarBrandCategory, CarBrandCategoryRepository>();
+            services.AddTransient<IAllBrands, BrandRepository>();
             services.AddTransient<ICarsCategory, CategoryRepository>();  //show  interfaces which we use in class
             services.AddTransient<IAllOrders, OrdersRepository>();
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
