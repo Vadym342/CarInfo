@@ -12,7 +12,7 @@ namespace CarInfo.Data.Repository
     {
         private readonly AppDbContext appDbContext;
 
-        BrandRepository(AppDbContext appDbContext)
+        public BrandRepository(AppDbContext appDbContext)
         {
             this.appDbContext = appDbContext;
         }
