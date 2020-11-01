@@ -47,12 +47,6 @@ namespace CarInfo.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("CarBrandCategoryid")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("CarBrandid")
-                        .HasColumnType("int");
-
                     b.Property<int>("CategoryID")
                         .HasColumnType("int");
 
@@ -85,10 +79,6 @@ namespace CarInfo.Migrations
 
                     b.HasKey("id");
 
-                    b.HasIndex("CarBrandCategoryid");
-
-                    b.HasIndex("CarBrandid");
-
                     b.HasIndex("CategoryID");
 
                     b.ToTable("Car");
@@ -101,6 +91,9 @@ namespace CarInfo.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int?>("CarBrandCategoryid")
+                        .HasColumnType("int");
+
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
@@ -110,10 +103,15 @@ namespace CarInfo.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<bool>("PopularBrand")
+                        .HasColumnType("bit");
+
                     b.Property<int>("YearCreation")
                         .HasColumnType("int");
 
                     b.HasKey("id");
+
+                    b.HasIndex("CarBrandCategoryid");
 
                     b.ToTable("CarBrands");
                 });
@@ -133,6 +131,9 @@ namespace CarInfo.Migrations
 
                     b.Property<string>("ImgBrand")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Year")
+                        .HasColumnType("int");
 
                     b.HasKey("id");
 
@@ -584,19 +585,18 @@ namespace CarInfo.Migrations
 
             modelBuilder.Entity("CarInfo.Data.Models.Car", b =>
                 {
-                    b.HasOne("CarInfo.Data.Models.CarBrandCategory", "CarBrandCategory")
-                        .WithMany("Cars")
-                        .HasForeignKey("CarBrandCategoryid");
-
-                    b.HasOne("CarInfo.Data.Models.CarBrand", null)
-                        .WithMany("cars")
-                        .HasForeignKey("CarBrandid");
-
                     b.HasOne("CarInfo.Data.Models.Category", "Category")
                         .WithMany("cars")
                         .HasForeignKey("CategoryID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("CarInfo.Data.Models.CarBrand", b =>
+                {
+                    b.HasOne("CarInfo.Data.Models.CarBrandCategory", "CarBrandCategory")
+                        .WithMany("Cars")
+                        .HasForeignKey("CarBrandCategoryid");
                 });
 
             modelBuilder.Entity("CarInfo.Data.Models.CarInformation", b =>

@@ -18,11 +18,12 @@ namespace CarInfo.Controllers
     {
        
         private readonly IAllCars _carRep;
+        private readonly IAllBrands _brandRep;
 
-        public HomeController(IAllCars carRep)
+        public HomeController(IAllCars carRep,IAllBrands brandRep)
         {
             _carRep = carRep;
-
+            _brandRep = brandRep;
         }
     
 
@@ -32,12 +33,13 @@ namespace CarInfo.Controllers
         //}
         public ViewResult Index()
         {
-            var homeCars = new HomeViewModel
+            var home = new HomeViewModel
             {
-                favCars = _carRep.getFavCars
+                favCars = _carRep.getFavCars,
+                PopularBrand = _brandRep.getPopularBrand
             };
 
-            return View(homeCars);
+            return View(home);
         }
 
 

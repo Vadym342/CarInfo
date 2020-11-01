@@ -12,6 +12,6 @@ namespace CarInfo.Data.Models
         public string Description { get; set; }
         public string ImgBrand { get; set; }
         public int Year { get; set; }
-        public List<Car> Cars { get; set; }
+        public List<CarBrand> Cars { get; set; }
     }
 }

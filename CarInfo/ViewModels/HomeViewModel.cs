@@ -9,5 +9,7 @@ namespace CarInfo.ViewModels
     public class HomeViewModel
     {
         public IEnumerable<Car> favCars { get; set; }
+        public IEnumerable<CarBrand> PopularBrand { get; set; }
+
     }
 }

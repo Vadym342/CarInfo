@@ -1,7 +1,13 @@
 ﻿@model HomeViewModel
 @Html.Partial("Carousel_Card")
 <div>
-    @Html.Partial("CarBrand")
+    @{
+        foreach (CarBrand brand in Model.PopularBrand)
+        {
+            @Html.Partial("AllBrands", brand)
+        }
+
+      }
 
 </div>
 <div class="album py-5 ">

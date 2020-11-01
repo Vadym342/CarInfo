@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace CarInfo.Migrations
 {
-    public partial class Initial : Migration
+    public partial class init : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -65,19 +65,19 @@ namespace CarInfo.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "carBrands",
+                name: "carBrandCategories",
                 columns: table => new
                 {
                     id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(nullable: true),
-                    YearCreation = table.Column<int>(nullable: false),
+                    CategoryName = table.Column<string>(nullable: true),
                     Description = table.Column<string>(nullable: true),
-                    Img = table.Column<string>(nullable: true)
+                    ImgBrand = table.Column<string>(nullable: true),
+                    Year = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_carBrands", x => x.id);
+                    table.PrimaryKey("PK_carBrandCategories", x => x.id);
                 });
 
             migrationBuilder.CreateTable(
@@ -257,6 +257,30 @@ namespace CarInfo.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "CarBrands",
+                columns: table => new
+                {
+                    id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(nullable: true),
+                    PopularBrand = table.Column<bool>(nullable: false),
+                    YearCreation = table.Column<int>(nullable: false),
+                    Description = table.Column<string>(nullable: true),
+                    Img = table.Column<string>(nullable: true),
+                    CarBrandCategoryid = table.Column<int>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_CarBrands", x => x.id);
+                    table.ForeignKey(
+                        name: "FK_CarBrands_carBrandCategories_CarBrandCategoryid",
+                        column: x => x.CarBrandCategoryid,
+                        principalTable: "carBrandCategories",
+                        principalColumn: "id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Car",
                 columns: table => new
                 {
@@ -271,18 +295,11 @@ namespace CarInfo.Migrations
                     Year = table.Column<int>(nullable: false),
                     isFavourite = table.Column<bool>(nullable: false),
                     avaible = table.Column<bool>(nullable: false),
-                    CategoryID = table.Column<int>(nullable: false),
-                    CarBrandid = table.Column<int>(nullable: true)
+                    CategoryID = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Car", x => x.id);
-                    table.ForeignKey(
-                        name: "FK_Car_carBrands_CarBrandid",
-                        column: x => x.CarBrandid,
-                        principalTable: "carBrands",
-                        principalColumn: "id",
-                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Car_Category_CategoryID",
                         column: x => x.CategoryID,
@@ -441,14 +458,14 @@ namespace CarInfo.Migrations
                 filter: "[NormalizedUserName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Car_CarBrandid",
-                table: "Car",
-                column: "CarBrandid");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_Car_CategoryID",
                 table: "Car",
                 column: "CategoryID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_CarBrands_CarBrandCategoryid",
+                table: "CarBrands",
+                column: "CarBrandCategoryid");
 
             migrationBuilder.CreateIndex(
                 name: "IX_CarInformation_CarOwnersid",
@@ -502,6 +519,9 @@ namespace CarInfo.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
+                name: "CarBrands");
+
+            migrationBuilder.DropTable(
                 name: "CarInformation");
 
             migrationBuilder.DropTable(
@@ -520,6 +540,9 @@ namespace CarInfo.Migrations
                 name: "AspNetUsers");
 
             migrationBuilder.DropTable(
+                name: "carBrandCategories");
+
+            migrationBuilder.DropTable(
                 name: "CarOwners");
 
             migrationBuilder.DropTable(
@@ -533,9 +556,6 @@ namespace CarInfo.Migrations
 
             migrationBuilder.DropTable(
                 name: "Car");
-
-            migrationBuilder.DropTable(
-                name: "carBrands");
 
             migrationBuilder.DropTable(
                 name: "Category");
